@@ -10,7 +10,8 @@ Explain the problem statement
 
 ## Neural Network Model
 
-Include the neural network model diagram.
+![deep learning op](https://github.com/user-attachments/assets/461c9f35-9b36-44ef-bb3b-36c01ff3d683)
+
 
 ## DESIGN STEPS
 
@@ -43,40 +44,62 @@ Plot the performance plot
 Evaluate the model with the testing data.
 
 ## PROGRAM
-### Name:
-### Register Number:
-```python
+# Name:Tanushree A
+# Register Number:212223100057
 class NeuralNet(nn.Module):
-    def __init__(self):
+  def __init__(self):
         super().__init__()
-        #Include your code here
+        self.fc1 = nn.Linear(1,8)
+        self.fc2 = nn.Linear(8,16)
+        self.fc3 = nn.Linear(16,1)
+        self.relu = nn.ReLU()
+        self.history = {'loss': []}
 
+  def forward(self, x): 
+    x = self.relu(self.fc1(x))
+    x = self.relu(self.fc2(x))
+    x = self.fc3(x)
+    return x
 
 
 # Initialize the Model, Loss Function, and Optimizer
+ai_brain = NeuralNet()
+criterion = nn.MSELoss()
+optimizer = optim.Adam(ai_brain.parameters(), lr=0.001)
 
 
-
-def train_model(ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
-    #Include your code here
+def train_model(ai_brain, criterion, optimizer, X_train_tensor, y_train_tensor, epochs=2000):
+    for epoch in range(epochs):
+        optimizer.zero_grad()
+        # Pass X_train_tensor instead of X_train to ai_brain
+        loss = criterion(ai_brain(X_train_tensor), y_train_tensor)
+        loss.backward()
+        optimizer.step()
+        ai_brain.history['loss'].append(loss.item())
+        if epoch % 200 == 0:
+            print(f'Epoch {epoch}, Loss: {loss.item():.6f}')
 
 
 
 ```
 ## Dataset Information
 
-Include screenshot of the dataset
+![deep learning dataset](https://github.com/user-attachments/assets/d9f7744a-c526-43c6-b8c7-3d6329b230bb)
+
+
 
 ## OUTPUT
 
 ### Training Loss Vs Iteration Plot
 
-Include your plot here
+![Screenshot 2025-03-09 133135](https://github.com/user-attachments/assets/76bf8594-beb1-485a-81d0-1b54e4ec5598)
+
 
 ### New Sample Data Prediction
 
-Include your sample input and output here
+![Screenshot 2025-03-09 133525](https://github.com/user-attachments/assets/046e5f19-3795-400b-8112-ce64c1e61c37)
+
 
 ## RESULT
 
-Include your result here
+The neural network regression model was successfully trained and evaluated. The model demonstrated strong predictive performance on unseen data, with a low error rate.
