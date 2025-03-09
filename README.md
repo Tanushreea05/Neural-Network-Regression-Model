@@ -44,11 +44,11 @@ Plot the performance plot
 Evaluate the model with the testing data.
 
 ## PROGRAM
-### Name:Tanushree A
-### Register Number:212223100057
-'''python
+### Name: Tanushree
+### Register Number: 212223100057
+```python
 class NeuralNet(nn.Module):
-  def __init__(self):
+    def __init__(self):
         super().__init__()
         self.fc1 = nn.Linear(1,8)
         self.fc2 = nn.Linear(8,16)
@@ -56,11 +56,12 @@ class NeuralNet(nn.Module):
         self.relu = nn.ReLU()
         self.history = {'loss': []}
 
-  def forward(self, x): 
-    x = self.relu(self.fc1(x))
-    x = self.relu(self.fc2(x))
-    x = self.fc3(x)
-    return x
+    def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x = self.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+
 
 
 # Initialize the Model, Loss Function, and Optimizer
@@ -69,10 +70,11 @@ criterion = nn.MSELoss()
 optimizer = optim.Adam(ai_brain.parameters(), lr=0.001)
 
 
+
 def train_model(ai_brain, criterion, optimizer, X_train_tensor, y_train_tensor, epochs=2000):
     for epoch in range(epochs):
         optimizer.zero_grad()
-        # Pass X_train_tensor instead of X_train to ai_brain
+        # Using X_train_tensor and y_train_tensor here
         loss = criterion(ai_brain(X_train_tensor), y_train_tensor)
         loss.backward()
         optimizer.step()
@@ -80,12 +82,7 @@ def train_model(ai_brain, criterion, optimizer, X_train_tensor, y_train_tensor, 
         if epoch % 200 == 0:
             print(f'Epoch {epoch}, Loss: {loss.item():.6f}')
 
-  '''
-
 
 
 ```
-
-
-
 
