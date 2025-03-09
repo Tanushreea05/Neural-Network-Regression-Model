@@ -44,8 +44,9 @@ Plot the performance plot
 Evaluate the model with the testing data.
 
 ## PROGRAM
-# Name:Tanushree A
-# Register Number:212223100057
+### Name:Tanushree A
+### Register Number:212223100057
+'''python
 class NeuralNet(nn.Module):
   def __init__(self):
         super().__init__()
@@ -78,6 +79,8 @@ def train_model(ai_brain, criterion, optimizer, X_train_tensor, y_train_tensor, 
         ai_brain.history['loss'].append(loss.item())
         if epoch % 200 == 0:
             print(f'Epoch {epoch}, Loss: {loss.item():.6f}')
+
+  '''
 
 
 
