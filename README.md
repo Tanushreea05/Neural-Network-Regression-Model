@@ -86,3 +86,22 @@ def train_model(ai_brain, criterion, optimizer, X_train_tensor, y_train_tensor, 
 
 ```
 
+## Dataset Information
+
+![deep learning dataset](https://github.com/user-attachments/assets/242f50dc-7b4e-42e8-ab68-c5ee577c2899)
+
+## OUTPUT
+
+### Training Loss Vs Iteration Plot
+
+
+![Screenshot 2025-03-09 133135](https://github.com/user-attachments/assets/a70f8829-3f90-4f1b-a716-f5a7e578af83)
+
+### New Sample Data Prediction
+
+![Screenshot 2025-03-09 133525](https://github.com/user-attachments/assets/2a1e60ad-474b-4f54-aa52-1a727ce78978)
+
+## RESULT
+
+The neural network regression model was successfully trained and evaluated. The model demonstrated strong predictive performance on unseen data, with a low error rate.
+
